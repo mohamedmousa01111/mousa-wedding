@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>زفاف Mohamed ورحاب | ٨ يونيو</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --gold: #C9A96E;
+    --gold-light: #E8D5A3;
+    --gold-dark: #8B6A45;
+    --rose: #D4A0B0;
+    --rose-dark: #A0607A;
+    --cream: #FFF8F0;
+    --cream-dark: #F5EAD8;
+    --brown-deep: #3D2B1F;
+    --brown: #6B4C30;
+    --brown-light: #8B6A45;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Amiri', serif;
+    background: var(--cream);
+    color: var(--brown-deep);
+    overflow-x: hidden;
+  }
+
+  /* ---- HERO ---- */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding: 60px 20px;
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(201,169,110,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 80% 80%, rgba(212,160,176,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* animated petals */
+  .petal {
+    position: absolute;
+    width: 10px;
+    height: 16px;
+    border-radius: 50% 0 50% 0;
+    background: var(--rose);
+    opacity: 0;
+    animation: fall linear infinite;
+  }
+
+  @keyframes fall {
+    0%   { transform: translateY(-40px) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(110vh)  rotate(360deg); opacity: 0; }
+  }
+
+  .border-frame {
+    position: absolute;
+    inset: 20px;
+    border: 1px solid var(--gold);
+    opacity: 0.4;
+    pointer-events: none;
+    border-radius: 2px;
+  }
+  .border-frame::before, .border-frame::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 0.5px solid var(--gold-light);
+    opacity: 0.6;
+    border-radius: 1px;
+  }
+
+  /* corner ornaments */
+  .corner {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+  }
+  .corner.tl { top: 20px; right: 20px; }
+  .corner.tr { top: 20px; left: 20px; transform: scaleX(-1); }
+  .corner.bl { bottom: 20px; right: 20px; transform: scaleY(-1); }
+  .corner.br { bottom: 20px; left: 20px; transform: scale(-1); }
+
+  .hero-content {
+    text-align: center;
+    z-index: 1;
+    max-width: 700px;
+    animation: fadeUp 1.4s ease both;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .basmala {
+    font-size: 1.1rem;
+    color: var(--gold-dark);
+    letter-spacing: 6px;
+    margin-bottom: 20px;
+    animation: fadeUp 1.4s 0.2s ease both;
+    opacity: 0;
+  }
+
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--brown-light);
+    margin-bottom: 16px;
+    animation: fadeUp 1.4s 0.4s ease both;
+    opacity: 0;
+  }
+
+  .divider-ornament {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 12px auto;
+    animation: fadeUp 1.4s 0.5s ease both;
+    opacity: 0;
+  }
+  .divider-ornament::before, .divider-ornament::after {
+    content: '';
+    width: 80px;
+    height: 0.5px;
+    background: linear-gradient(to right, transparent, var(--gold));
+  }
+  .divider-ornament::after {
+    background: linear-gradient(to left, transparent, var(--gold));
+  }
+  .divider-ornament span {
+    color: var(--gold);
+    font-size: 1.2rem;
+  }
+
+  .names {
+    margin: 20px 0;
+    animation: fadeUp 1.4s 0.6s ease both;
+    opacity: 0;
+  }
+
+  .name-groom, .name-bride {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(3.5rem, 10vw, 6rem);
+    font-weight: 700;
+    color: var(--brown-deep);
+    line-height: 1.1;
+    letter-spacing: 4px;
+  }
+
+  .names-and {
+    font-family: 'Amiri', serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin: 8px 0;
+    display: block;
+  }
+
+  .hero-date-line {
+    font-size: 1rem;
+    color: var(--brown);
+    margin: 24px 0 16px;
+    animation: fadeUp 1.4s 0.8s ease both;
+    opacity: 0;
+  }
+
+  .date-badge {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    padding: 14px 40px;
+    margin-bottom: 16px;
+    animation: fadeUp 1.4s 1s ease both;
+    opacity: 0;
+    position: relative;
+  }
+  .date-badge::before, .date-badge::after {
+    content: '✦';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--gold);
+    font-size: 0.7rem;
+  }
+  .date-badge::before { left: 12px; }
+  .date-badge::after  { right: 12px; }
+
+  .date-num {
+    font-family: 'Scheherazade New', serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    display: block;
+    line-height: 1;
+  }
+  .date-month {
+    font-size: 1.1rem;
+    color: var(--brown-light);
+    display: block;
+    margin-top: 4px;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    color: var(--gold-dark);
+    font-size: 0.8rem;
+    opacity: 0.7;
+    animation: fadeUp 2s 1.8s ease both, bob 2s 2s ease-in-out infinite;
+    z-index: 1;
+  }
+  @keyframes bob {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ---- COUNTDOWN ---- */
+  .section {
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .section-label {
+    font-size: 0.85rem;
+    letter-spacing: 6px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+
+  .countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .countdown-box {
+    background: var(--cream-dark);
+    border: 1px solid var(--gold-light);
+    padding: 20px 28px;
+    min-width: 90px;
+    position: relative;
+  }
+  .countdown-box::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border: 0.5px solid var(--gold-light);
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .count-num {
+    font-family: 'Scheherazade New', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    line-height: 1;
+    display: block;
+  }
+  .count-label {
+    font-size: 0.8rem;
+    color: var(--brown-light);
+    margin-top: 6px;
+    display: block;
+  }
+
+  /* ---- VERSE ---- */
+  .verse-section {
+    background: var(--cream-dark);
+    padding: 80px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .verse-section::before {
+    content: '❧';
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 8rem;
+    color: var(--gold-light);
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  .verse-text {
+    font-family: 'Scheherazade New', serif;
+    font-size: clamp(1.2rem, 3vw, 1.7rem);
+    color: var(--brown-deep);
+    line-height: 2;
+    max-width: 600px;
+    margin: 0 auto 16px;
+  }
+
+  .verse-ref {
+    font-size: 0.9rem;
+    color: var(--gold-dark);
+    letter-spacing: 2px;
+  }
+
+  /* ---- STORY ---- */
+  .story-section {
+    padding: 90px 24px;
+    background: var(--cream);
+    overflow: hidden;
+  }
+
+  .story-section .section-label {
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .story-intro {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--brown-light);
+    margin-bottom: 60px;
+  }
+
+  .timeline {
+    position: relative;
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* vertical line */
+  .timeline::before {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, var(--gold) 8%, var(--gold) 92%, transparent);
+  }
+
+  .tl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+    margin-bottom: 60px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .tl-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* alternating sides */
+  .tl-item:nth-child(odd)  { flex-direction: row-reverse; }
+  .tl-item:nth-child(even) { flex-direction: row; }
+
+  .tl-content {
+    flex: 1;
+    max-width: calc(50% - 40px);
+    text-align: right;
+  }
+  .tl-item:nth-child(even) .tl-content {
+    text-align: left;
+  }
+
+  /* center dot */
+  .tl-dot {
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--cream-dark);
+    border: 1.5px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    z-index: 1;
+    flex-shrink: 0;
+  }
+  .tl-dot::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    border: 0.5px solid var(--gold-light);
+  }
+
+  .tl-year {
+    font-size: 0.72rem;
+    letter-spacing: 4px;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .tl-title {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    margin-bottom: 8px;
+    line-height: 1.3;
+  }
+
+  .tl-desc {
+    font-size: 0.95rem;
+    color: var(--brown);
+    line-height: 1.9;
+  }
+
+  .tl-tag {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 4px 14px;
+    border: 0.5px solid var(--gold-light);
+    font-size: 0.75rem;
+    color: var(--gold-dark);
+    letter-spacing: 2px;
+  }
+
+  @media (max-width: 600px) {
+    .timeline::before { left: 20px; }
+    .tl-item,
+    .tl-item:nth-child(odd),
+    .tl-item:nth-child(even) {
+      flex-direction: column;
+      padding-right: 54px;
+    }
+    .tl-dot { left: 20px; top: 10px; }
+    .tl-content { max-width: 100%; text-align: right !important; }
+  }
+
+  /* ---- DETAILS ---- */
+  .details-grid {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    flex-wrap: wrap;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .detail-card {
+    background: var(--cream-dark);
+    border: 1px solid var(--gold-light);
+    padding: 32px 28px;
+    min-width: 220px;
+    flex: 1;
+    max-width: 280px;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  .detail-card:hover { transform: translateY(-4px); }
+
+  .detail-icon {
+    font-size: 1.8rem;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 12px;
+  }
+  .detail-title {
+    font-size: 0.8rem;
+    letter-spacing: 4px;
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+  }
+  .detail-value {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--brown-deep);
+    line-height: 1.4;
+  }
+
+  /* ---- RSVP ---- */
+  .rsvp-section {
+    background: var(--brown-deep);
+    padding: 80px 24px;
+    text-align: center;
+    color: var(--cream);
+  }
+
+  .rsvp-section .section-label {
+    color: var(--gold-light);
+  }
+
+  .rsvp-text {
+    font-size: 1.1rem;
+    color: var(--gold-light);
+    margin-bottom: 32px;
+    line-height: 1.8;
+  }
+
+  .rsvp-btn {
+    display: inline-block;
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    padding: 14px 48px;
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .rsvp-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+    z-index: -1;
+  }
+  .rsvp-btn:hover { color: var(--brown-deep); }
+  .rsvp-btn:hover::before { transform: scaleX(1); transform-origin: left; }
+
+  /* ---- FOOTER ---- */
+  footer {
+    background: var(--cream-dark);
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid var(--gold-light);
+  }
+  footer p {
+    font-size: 0.85rem;
+    color: var(--brown-light);
+    line-height: 2;
+  }
+  .footer-names {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.3rem;
+    color: var(--gold-dark);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ---- MODAL RSVP ---- */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(61,43,31,0.85);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+  .modal {
+    background: var(--cream);
+    border: 1px solid var(--gold);
+    padding: 40px;
+    max-width: 460px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+
+  .modal-close {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--brown-light);
+  }
+
+  .modal-title {
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.8rem;
+    color: var(--brown-deep);
+    margin-bottom: 24px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+    text-align: right;
+  }
+  .form-group label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--brown-light);
+    margin-bottom: 6px;
+    letter-spacing: 2px;
+  }
+  .form-group input, .form-group select {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1px solid var(--gold-light);
+    background: var(--cream-dark);
+    font-family: 'Amiri', serif;
+    font-size: 1rem;
+    color: var(--brown-deep);
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .form-group input:focus, .form-group select:focus {
+    border-color: var(--gold);
+  }
+
+  .submit-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--gold);
+    border: none;
+    font-family: 'Scheherazade New', serif;
+    font-size: 1.1rem;
+    color: var(--brown-deep);
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: background 0.2s;
+    margin-top: 8px;
+  }
+  .submit-btn:hover { background: var(--gold-dark); color: var(--cream); }
+
+  .success-msg {
+    display: none;
+    font-size: 1.1rem;
+    color: var(--gold-dark);
+    padding: 16px;
+  }
+
+  @media (max-width: 480px) {
+    .countdown-grid { gap: 12px; }
+    .countdown-box { padding: 16px 18px; min-width: 70px; }
+    .count-num { font-size: 2.2rem; }
+    .details-grid { gap: 16px; }
+    .modal { padding: 28px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Petals -->
+<div class="hero">
+  <div class="border-frame"></div>
+
+  <!-- SVG corner ornaments -->
+  <svg class="corner tl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 5 Q5 55 55 55" stroke="#C9A96E" stroke-width="1" opacity="0.7"/>
+    <path d="M5 5 L5 30" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <path d="M5 5 L30 5" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <circle cx="5" cy="5" r="3" fill="#C9A96E" opacity="0.8"/>
+    <circle cx="55" cy="55" r="2" fill="#C9A96E" opacity="0.6"/>
+  </svg>
+  <svg class="corner tr" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 5 Q5 55 55 55" stroke="#C9A96E" stroke-width="1" opacity="0.7"/>
+    <path d="M5 5 L5 30" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <path d="M5 5 L30 5" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <circle cx="5" cy="5" r="3" fill="#C9A96E" opacity="0.8"/>
+    <circle cx="55" cy="55" r="2" fill="#C9A96E" opacity="0.6"/>
+  </svg>
+  <svg class="corner bl" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 5 Q5 55 55 55" stroke="#C9A96E" stroke-width="1" opacity="0.7"/>
+    <path d="M5 5 L5 30" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <path d="M5 5 L30 5" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <circle cx="5" cy="5" r="3" fill="#C9A96E" opacity="0.8"/>
+    <circle cx="55" cy="55" r="2" fill="#C9A96E" opacity="0.6"/>
+  </svg>
+  <svg class="corner br" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M5 5 Q5 55 55 55" stroke="#C9A96E" stroke-width="1" opacity="0.7"/>
+    <path d="M5 5 L5 30" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <path d="M5 5 L30 5" stroke="#C9A96E" stroke-width="1" opacity="0.5"/>
+    <circle cx="5" cy="5" r="3" fill="#C9A96E" opacity="0.8"/>
+    <circle cx="55" cy="55" r="2" fill="#C9A96E" opacity="0.6"/>
+  </svg>
+
+  <div class="hero-content">
+    <p class="basmala">﷽</p>
+    <p class="hero-sub">يُسعدنا دعوتكم لحضور حفل زفاف</p>
+    <div class="divider-ornament"><span>✦</span></div>
+
+    <div class="names">
+      <span class="name-groom">Mohamed</span>
+      <span class="names-and">&amp;</span>
+      <span class="name-bride">رحاب</span>
+    </div>
+
+    <div class="divider-ornament" style="animation-delay:0.7s"><span>✦</span></div>
+    <p class="hero-date-line">تحتفلان بزفافهما في</p>
+
+    <div class="date-badge">
+      <span class="date-num">٨ يونيو</span>
+      <span class="date-month">الأحد · ٢٠٢٦</span>
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span>↓</span>
+    <span>اكتشف التفاصيل</span>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<section class="section">
+  <p class="section-label">العد التنازلي</p>
+  <div class="countdown-grid">
+    <div class="countdown-box">
+      <span class="count-num" id="cd-days">--</span>
+      <span class="count-label">يوم</span>
+    </div>
+    <div class="countdown-box">
+      <span class="count-num" id="cd-hours">--</span>
+      <span class="count-label">ساعة</span>
+    </div>
+    <div class="countdown-box">
+      <span class="count-num" id="cd-mins">--</span>
+      <span class="count-label">دقيقة</span>
+    </div>
+    <div class="countdown-box">
+      <span class="count-num" id="cd-secs">--</span>
+      <span class="count-label">ثانية</span>
+    </div>
+  </div>
+</section>
+
+<!-- VERSE -->
+<section class="verse-section">
+  <p class="verse-text">﴿ وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً ﴾</p>
+  <p class="verse-ref">سورة الروم · آية ٢١</p>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <p class="section-label">قصتنا</p>
+  <p class="story-intro">من أول لقاء إلى الأبد ✦</p>
+
+  <div class="timeline">
+
+    <!-- 1: أول مقابلة -->
+    <div class="tl-item">
+      <div class="tl-dot">💫</div>
+      <div class="tl-content">
+        <span class="tl-year">البداية</span>
+        <h3 class="tl-title">أول مقابلة</h3>
+        <!-- <p class="tl-desc">كانت البداية بنظرة وابتسامة، لحظة بسيطة غيّرت كل شيء. وجدنا في بعض ما كنا نبحث عنه.</p> -->
+        <p class="tl-desc">01/01/2020</p>
+        <span class="tl-tag">✦ البداية</span>
+      </div>
+    </div>
+
+    <!-- 2: قراية الفاتحة -->
+    <div class="tl-item">
+      <div class="tl-dot">📖</div>
+      <div class="tl-content">
+        <span class="tl-year">بداية الطريق</span>
+        <h3 class="tl-title">قراية الفاتحة</h3>
+        <p class="tl-desc">01/01/2020</p>
+        <!-- <p class="tl-desc">قرأنا الفاتحة على بركة الله، وبدأت رحلة جديدة بالحلال والرضا. يوم مليء بالدعوات والفرحة.</p> -->
+        <span class="tl-tag">✦ على بركة الله</span>
+      </div>
+    </div>
+
+    <!-- 3: الخطوبة -->
+    <div class="tl-item">
+      <div class="tl-dot">💍</div>
+      <div class="tl-content">
+        <span class="tl-year">لحظة لا تُنسى</span>
+        <h3 class="tl-title">الخطوبة</h3>
+        <p class="tl-desc">01/01/2020</p>
+        <!-- <p class="tl-desc">تبادلنا الخواتم ووعد القلوب، وأعلنّا أمام الأهل والأحبّة أن طريقنا واحد من هنا وللأبد.</p> -->
+        <span class="tl-tag">✦ وعد الأبد</span>
+      </div>
+    </div>
+
+     <!-- كتب الكتاب — تمييز خاص -->
+    <div class="tl-item katb">
+      <div class="tl-dot">🕌</div>
+      <div class="tl-content">
+        <span class="tl-year">عقد مبارك</span>
+        <h3 class="tl-title">كتب الكتاب</h3>
+        <p class="tl-desc">01/01/2020</p>
+        <span class="tl-tag">✦ بعقد شرعي مبارك</span>
+      </div>
+    </div>
+
+    <!-- 4: الفرح -->
+    <div class="tl-item">
+      <div class="tl-dot">🌸</div>
+      <div class="tl-content">
+        <!-- <span class="tl-year">٨ يونيو ٢٠٢٥</span> -->
+        <h3 class="tl-title">يوم الفرح</h3>
+        <p class="tl-desc">01/01/2020</p>
+
+        <!-- <p class="tl-desc">ويجيء اليوم الأجمل، يوم تكتمل الفرحة وتجتمع القلوب احتفالاً بحبٍّ بدأ بلحظة وسيستمر للأبد.</p> -->
+        <span class="tl-tag">✦ للأبد</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DETAILS -->
+<section class="section">
+  <p class="section-label">تفاصيل الحفل</p>
+  <div class="details-grid">
+    <div class="detail-card">
+      <span class="detail-icon">📅</span>
+      <p class="detail-title">التاريخ</p>
+      <p class="detail-value">الأحد<br>٨ يونيو ٢٠٢٥</p>
+    </div>
+    <div class="detail-card">
+      <span class="detail-icon">🕖</span>
+      <p class="detail-title">الموعد</p>
+      <p class="detail-value">السادسة مساءً</p>
+    </div>
+    <div class="detail-card">
+      <span class="detail-icon">📍</span>
+      <p class="detail-title">المكان</p>
+      <p class="detail-value">يُحدد قريباً</p>
+    </div>
+  </div>
+</section>
+
+<!-- RSVP
+<section class="rsvp-section">
+  <p class="section-label">تأكيد الحضور</p>
+  <p class="rsvp-text">
+    نتشرف بحضوركم وتهانيكم الكريمة<br>
+    يُرجى تأكيد حضوركم قبل ١ يونيو
+  </p>
+  <button class="rsvp-btn" onclick="openModal()">✦ أؤكد حضوري ✦</button>
+</section> -->
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-names">Mohamed ✦ رحاب</span>
+  <p>بارك الله لهما وبارك عليهما وجمع بينهما في خير</p>
+  <p style="margin-top:8px; font-size:0.75rem; opacity:0.6;">٨ يونيو ٢٠٢٥</p>
+</footer>
+
+<!-- MODAL -->
+<!-- <div class="modal-overlay" id="modal" onclick="closeOnOverlay(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2 class="modal-title">تأكيد الحضور</h2>
+    <div id="rsvp-form">
+      <div class="form-group">
+        <label>الاسم الكريم</label>
+        <input type="text" id="rsvp-name" placeholder="اكتب اسمك هنا" />
+      </div>
+      <div class="form-group">
+        <label>عدد الأفراد</label>
+        <select id="rsvp-count">
+          <option value="1">١ فرد</option>
+          <option value="2">٢ فرد</option>
+          <option value="3">٣ أفراد</option>
+          <option value="4">٤ أفراد أو أكثر</option>
+        </select>
+      </div>
+      <button class="submit-btn" onclick="submitRSVP()">✦ أؤكد حضوري ✦</button>
+    </div>
+    <div class="success-msg" id="rsvp-success">
+      🌸 شكراً لتأكيد حضوركم<br>يسعدنا رؤيتكم في الحفل
+    </div>
+  </div>
+</div> -->
+
+<!-- Petals JS -->
+<script>
+  // Timeline scroll animation
+  const tlObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        tlObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.tl-item').forEach((el, i) => {
+    el.style.transitionDelay = (i * 0.15) + 's';
+    tlObserver.observe(el);
+  });
+
+  // Generate petals
+  (function() {
+    const hero = document.querySelector('.hero');
+    const colors = ['#D4A0B0','#E8D5A3','#C9A96E','#F5D5DF'];
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'petal';
+      p.style.left = Math.random() * 100 + 'vw';
+      p.style.top = '-20px';
+      p.style.animationDuration = (6 + Math.random() * 8) + 's';
+      p.style.animationDelay = (Math.random() * 10) + 's';
+      p.style.background = colors[Math.floor(Math.random() * colors.length)];
+      p.style.transform = 'rotate(' + (Math.random() * 360) + 'deg)';
+      p.style.width = (6 + Math.random() * 8) + 'px';
+      p.style.height = (10 + Math.random() * 10) + 'px';
+      p.style.opacity = 0.5 + Math.random() * 0.4;
+      hero.appendChild(p);
+    }
+  })();
+
+  // Countdown
+  function updateCountdown() {
+    const target = new Date('2026-06-08T18:00:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) {
+      document.getElementById('cd-days').textContent = '٠';
+      document.getElementById('cd-hours').textContent = '٠';
+      document.getElementById('cd-mins').textContent = '٠';
+      document.getElementById('cd-secs').textContent = '٠';
+      return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+
+    const toArabic = n => n.toString().replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+    document.getElementById('cd-days').textContent  = toArabic(String(days).padStart(2,'0'));
+    document.getElementById('cd-hours').textContent = toArabic(String(hours).padStart(2,'0'));
+    document.getElementById('cd-mins').textContent  = toArabic(String(mins).padStart(2,'0'));
+    document.getElementById('cd-secs').textContent  = toArabic(String(secs).padStart(2,'0'));
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // Modal
+  function openModal() {
+    document.getElementById('modal').classList.add('open');
+  }
+  function closeModal() {
+    document.getElementById('modal').classList.remove('open');
+    document.getElementById('rsvp-success').style.display = 'none';
+    document.getElementById('rsvp-form').style.display = 'block';
+  }
+  function closeOnOverlay(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+  }
+  function submitRSVP() {
+    const name = document.getElementById('rsvp-name').value.trim();
+    if (!name) { document.getElementById('rsvp-name').focus(); return; }
+    document.getElementById('rsvp-form').style.display = 'none';
+    document.getElementById('rsvp-success').style.display = 'block';
+  }
+</script>
+</body>
+</html>
